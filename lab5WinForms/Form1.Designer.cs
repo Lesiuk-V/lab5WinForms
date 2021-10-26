@@ -174,6 +174,7 @@ namespace lab5WinForms
             this.addCustomers.TabIndex = 0;
             this.addCustomers.Text = "Add Customer";
             this.addCustomers.UseVisualStyleBackColor = true;
+            this.addCustomers.Click += new System.EventHandler(this.addCustomers_Click);
             // 
             // splitContainer2
             // 
@@ -310,6 +311,7 @@ namespace lab5WinForms
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
