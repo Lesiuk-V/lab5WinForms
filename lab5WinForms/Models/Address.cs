@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace lab5WinForms.Models
 {
-    public class Product
+    public class Address
     {
         public int Id { get; set; }
         [Required]
-        public string P_name { get; set; }
+        public string Region { get; set; }
         [Required]
-        public string Category { get; set; }
+        public string City { get; set; }
         [Required]
-        public string P_description { get; set; }
-        public Manager Manager { get; set; }
+        public string Street { get; set; }
         [Required]
-        public int ManagerId { get; set; }
+        public string Building { get; set; }
     }
 }

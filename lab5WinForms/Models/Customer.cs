@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab5WinForms.Models
 {
-    class Customer
+    public class Customer
     {
         public int Id { get; set; }
         [Required]
@@ -18,13 +18,5 @@ namespace lab5WinForms.Models
         public string Gender { get;set; }
         [Required]
         public string Plase_of_esidence { get; set; }
-
-     /*   public Customer(string PIB, string Date_of_birth, string Gender, string Plase_of_esidence)
-        {
-            this.PIB = PIB;
-            this.Date_of_birth = Date_of_birth;
-            this.Gender = Gender;
-            this.Plase_of_esidence = Plase_of_esidence;
-        }*/
     }
 }

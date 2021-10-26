@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace lab5WinForms.Models
 {
-    public class Product
+    public class Manager
     {
         public int Id { get; set; }
         [Required]
-        public string P_name { get; set; }
+        public string PIB { get; set; }
         [Required]
-        public string Category { get; set; }
+        public string DateOfBirth { get; set; }
         [Required]
-        public string P_description { get; set; }
-        public Manager Manager { get; set; }
-        [Required]
-        public int ManagerId { get; set; }
+        public string Gender { get; set; }
     }
 }

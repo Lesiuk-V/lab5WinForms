@@ -36,11 +36,11 @@ namespace lab5WinForms
             System.Windows.Forms.Label plase_of_esidenceLabel;
             this.label2 = new System.Windows.Forms.Label();
             this.AgeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.PIBTextBox = new System.Windows.Forms.TextBox();
             this.plase_of_esidenceTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             date_of_birthLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
             pIBLabel = new System.Windows.Forms.Label();
@@ -101,6 +101,10 @@ namespace lab5WinForms
             this.AgeDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.AgeDateTimePicker.TabIndex = 8;
             // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(lab5WinForms.Models.Customer);
+            // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "Gender", true));
@@ -135,10 +139,6 @@ namespace lab5WinForms
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(lab5WinForms.Models.Customer);
-            // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +155,7 @@ namespace lab5WinForms
             this.Controls.Add(this.plase_of_esidenceTextBox);
             this.Controls.Add(this.label2);
             this.Name = "AddCustomerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddCustomerForm";
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);

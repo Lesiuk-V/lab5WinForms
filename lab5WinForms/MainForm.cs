@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace lab5WinForms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         string ConnectionString = "Server=tcp:itacademy.database.windows.net;Database=lesyuk;User ID = lesyuk;Password=Dxm23487;Trusted_Connection=False;Encrypt=True";
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -129,6 +129,13 @@ namespace lab5WinForms
             
             AddCustomerForm addCustomer = new AddCustomerForm();
             addCustomer.Show();
+        }
+
+        private void addProduct_Click(object sender, EventArgs e)
+        {
+            AddProductForm addProduct = new AddProductForm();
+            addProduct.Show();
+
         }
     }
 }

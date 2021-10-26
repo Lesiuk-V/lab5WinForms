@@ -1,7 +1,7 @@
 ﻿
 namespace lab5WinForms
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,8 @@ namespace lab5WinForms
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.getUsersLivedInKharkivNowInKiev = new System.Windows.Forms.Button();
+            this.getCustomersKiivLvivIvanoFrankivsk = new System.Windows.Forms.Button();
             this.getUsersBetwen1980and1955 = new System.Windows.Forms.Button();
             this.getManagers = new System.Windows.Forms.Button();
             this.getAddress = new System.Windows.Forms.Button();
@@ -49,8 +51,6 @@ namespace lab5WinForms
             this.updateProduct = new System.Windows.Forms.Button();
             this.updateCustomer = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.getCustomersKiivLvivIvanoFrankivsk = new System.Windows.Forms.Button();
-            this.getUsersLivedInKharkivNowInKiev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -88,6 +88,24 @@ namespace lab5WinForms
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 211;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // getUsersLivedInKharkivNowInKiev
+            // 
+            this.getUsersLivedInKharkivNowInKiev.Location = new System.Drawing.Point(7, 366);
+            this.getUsersLivedInKharkivNowInKiev.Name = "getUsersLivedInKharkivNowInKiev";
+            this.getUsersLivedInKharkivNowInKiev.Size = new System.Drawing.Size(201, 49);
+            this.getUsersLivedInKharkivNowInKiev.TabIndex = 10;
+            this.getUsersLivedInKharkivNowInKiev.Text = "Get customers who previously lived in Kharkiv and now live\r\nIn Kiev";
+            this.getUsersLivedInKharkivNowInKiev.UseVisualStyleBackColor = true;
+            // 
+            // getCustomersKiivLvivIvanoFrankivsk
+            // 
+            this.getCustomersKiivLvivIvanoFrankivsk.Location = new System.Drawing.Point(7, 324);
+            this.getCustomersKiivLvivIvanoFrankivsk.Name = "getCustomersKiivLvivIvanoFrankivsk";
+            this.getCustomersKiivLvivIvanoFrankivsk.Size = new System.Drawing.Size(202, 35);
+            this.getCustomersKiivLvivIvanoFrankivsk.TabIndex = 9;
+            this.getCustomersKiivLvivIvanoFrankivsk.Text = "Get customers living in Kyiv, Lviv, Ivano-Frankivsk";
+            this.getCustomersKiivLvivIvanoFrankivsk.UseVisualStyleBackColor = true;
             // 
             // getUsersBetwen1980and1955
             // 
@@ -165,6 +183,7 @@ namespace lab5WinForms
             this.addProduct.TabIndex = 1;
             this.addProduct.Text = "Add Product";
             this.addProduct.UseVisualStyleBackColor = true;
+            this.addProduct.Click += new System.EventHandler(this.addProduct_Click);
             // 
             // addCustomers
             // 
@@ -285,31 +304,13 @@ namespace lab5WinForms
             this.dataGridView1.Size = new System.Drawing.Size(585, 316);
             this.dataGridView1.TabIndex = 0;
             // 
-            // getCustomersKiivLvivIvanoFrankivsk
-            // 
-            this.getCustomersKiivLvivIvanoFrankivsk.Location = new System.Drawing.Point(7, 324);
-            this.getCustomersKiivLvivIvanoFrankivsk.Name = "getCustomersKiivLvivIvanoFrankivsk";
-            this.getCustomersKiivLvivIvanoFrankivsk.Size = new System.Drawing.Size(202, 35);
-            this.getCustomersKiivLvivIvanoFrankivsk.TabIndex = 9;
-            this.getCustomersKiivLvivIvanoFrankivsk.Text = "Get customers living in Kyiv, Lviv, Ivano-Frankivsk";
-            this.getCustomersKiivLvivIvanoFrankivsk.UseVisualStyleBackColor = true;
-            // 
-            // getUsersLivedInKharkivNowInKiev
-            // 
-            this.getUsersLivedInKharkivNowInKiev.Location = new System.Drawing.Point(7, 366);
-            this.getUsersLivedInKharkivNowInKiev.Name = "getUsersLivedInKharkivNowInKiev";
-            this.getUsersLivedInKharkivNowInKiev.Size = new System.Drawing.Size(201, 49);
-            this.getUsersLivedInKharkivNowInKiev.TabIndex = 10;
-            this.getUsersLivedInKharkivNowInKiev.Text = "Get customers who previously lived in Kharkiv and now live\r\nIn Kiev";
-            this.getUsersLivedInKharkivNowInKiev.UseVisualStyleBackColor = true;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

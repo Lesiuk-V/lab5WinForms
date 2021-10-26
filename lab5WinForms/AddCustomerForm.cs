@@ -25,26 +25,6 @@ namespace lab5WinForms
         private void AddButton_Click(object sender, EventArgs e)
         {
             customerBindingSource.DataSource = new Customer();
-           /* SqlConnection con = new SqlConnection(ConnectionString);
-            con.Open();
-            try
-            {
-                string dateOfBirth = AgeDateTimePicker.Value.Year.ToString() + '-' + AgeDateTimePicker.Value.Month.ToString() + '-' + AgeDateTimePicker.Value.Day.ToString();
-                Customer customer = new Customer(PIBTextBox.Text.ToString(), dateOfBirth, genderTextBox.Text.ToString(), plase_of_esidenceTextBox.Text.ToString());
-                //string cmdText = $"Insert into Customers(PIB, Date_of_birth, Gender, Plase_of_esidence) values('"+PIBTextBox.Text.ToString()+"','" + dateOfBirth + "','" + genderTextBox.Text.ToString() + "','" + placeOfEcpTextBox.Text.ToString()+"')'";    
-                string cmdText = $"Insert into Customers(PIB, Date_of_birth, Gender, Plase_of_esidence) values('{customer.PIB}','{customer.Date_of_birth}','{customer.Gender}','{customer.Plase_of_esidence}')";    
-                    
-                SqlCommand comm = new SqlCommand(cmdText, con);
-                comm.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error");
-            }
-            // SqlDataReader sqlDataReader = comm.ExecuteReader();
-            this.Close();
-            con.Close();*/
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -68,7 +48,6 @@ namespace lab5WinForms
                     }
                 }
                 string dateOfBirth = AgeDateTimePicker.Value.Year.ToString() + '-' + AgeDateTimePicker.Value.Month.ToString() + '-' + AgeDateTimePicker.Value.Day.ToString();
-                //string cmdText = $"Insert into Customers(PIB, Date_of_birth, Gender, Plase_of_esidence) values('"+PIBTextBox.Text.ToString()+"','" + dateOfBirth + "','" + genderTextBox.Text.ToString() + "','" + placeOfEcpTextBox.Text.ToString()+"')'";    
                 string cmdText = $"Insert into Customers(PIB, Date_of_birth, Gender, Plase_of_esidence) values('{customer.PIB}','{dateOfBirth}','{customer.Gender}','{customer.Plase_of_esidence}')";
 
                 SqlCommand comm = new SqlCommand(cmdText, con);
