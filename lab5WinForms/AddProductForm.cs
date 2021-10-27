@@ -20,7 +20,19 @@ namespace lab5WinForms
         {
             InitializeComponent();
             productBindingSource.DataSource = new Product();
-            
+            updateButton.Visible = false;
+            updateLable.Visible = false;
+            updateComboBox.Visible = false;
+            idTextBox.Visible = false;
+            idLabel.Visible = false;
+
+
+        }
+        public AddProductForm(bool a)
+        {
+            InitializeComponent();
+            label1.Text = "Update product";
+
         }
 
         private void AddProductForm_Load(object sender, EventArgs e)
@@ -41,6 +53,25 @@ namespace lab5WinForms
                 pIBComboBox.DisplayMember = "PIB";
             }
             con.Close();
+
+            con.Open();
+            string cmdText1 = "Select Id, P_name, Category, P_description, Manager_id from Product";
+            SqlCommand comm1 = new SqlCommand(cmdText1, con);
+            SqlDataReader sqlDataReader1 = comm1.ExecuteReader();
+
+            while (sqlDataReader1.Read())
+            {
+                Product product = new Product();
+                product.Id = (int)sqlDataReader1[0];
+                product.P_name = (string)sqlDataReader1[1];
+                product.Category = (string)sqlDataReader1[2];
+                product.P_description = (string)sqlDataReader1[3];
+                product.ManagerId = Convert.ToInt32(sqlDataReader1[4]);
+                updateComboBox.Items.Add(product);
+                updateComboBox.DisplayMember = "P_name";
+            }
+            con.Close();
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -50,7 +81,7 @@ namespace lab5WinForms
             
             productBindingSource.EndEdit();
             Product product = productBindingSource.Current as Product;
-            Manager manager = (Manager)pIBComboBox.SelectedItem;
+            Customer customer = (Customer)pIBComboBox.SelectedItem;
             if (product != null)
             {
                 ValidationContext context = new ValidationContext(product, null, null);
@@ -63,8 +94,7 @@ namespace lab5WinForms
                         return;
                     }
                 }
-                product.ManagerId = manager.Id;
-               string cmdText = $"Insert into Product(P_name, Category, P_description, Manager_id) values('{product.P_name}','{product.Category}','{product.P_description}','{product.ManagerId}')";
+               string cmdText = $"Insert into Product(P_name, Category, P_description, Manager_id) values('{product.P_name}','{product.Category}','{product.P_description}','{customer.Id}')";
 
                 SqlCommand comm = new SqlCommand(cmdText, con);
                 comm.ExecuteNonQuery();
@@ -73,5 +103,41 @@ namespace lab5WinForms
             }
         }
 
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            /*            ValidationContext context = new ValidationContext(customer, null, null);
+                        IList<ValidationResult> errors = new List<ValidationResult>();
+                        if (!Validator.TryValidateObject(customer, context, errors, true))
+                        {
+                            foreach (ValidationResult result in errors)
+                            {
+                                MessageBox.Show(result.ErrorMessage, "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }*/
+            Manager manager = (Manager)pIBComboBox.SelectedItem;
+
+            string cmdText = $"UPDATE Product SET P_name = '{p_nameTextBox.Text}', P_description= '{p_descriptionTextBox.Text}', Category = '{categoryTextBox.Text}', Manager_id = '{manager.Id}' WHERE Id ={idTextBox.Text}";
+
+            SqlCommand comm = new SqlCommand(cmdText, con);
+            comm.ExecuteNonQuery();
+            con.Close();
+            this.Close();
+            
+        }
+
+        private void updateComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            Product product = (Product)updateComboBox.SelectedItem;
+            p_nameTextBox.Text = product.P_name;
+            categoryTextBox.Text = product.Category;
+            p_descriptionTextBox.Text = product.P_description;
+            pIBComboBox.SelectedIndex = product.ManagerId-1;
+            idTextBox.Text = Convert.ToString(product.Id);
+        }
     }
 }

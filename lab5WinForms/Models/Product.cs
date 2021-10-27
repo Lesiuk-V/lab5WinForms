@@ -16,7 +16,6 @@ namespace lab5WinForms.Models
         public string Category { get; set; }
         [Required]
         public string P_description { get; set; }
-        public Manager Manager { get; set; }
         [Required]
         public int ManagerId { get; set; }
     }

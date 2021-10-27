@@ -42,11 +42,7 @@ namespace lab5WinForms
             this.addProduct = new System.Windows.Forms.Button();
             this.addCustomers = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.updateManagerComboBox = new System.Windows.Forms.ComboBox();
-            this.updateProductComboBox = new System.Windows.Forms.ComboBox();
-            this.updateAddressComboBox = new System.Windows.Forms.ComboBox();
             this.updateManager = new System.Windows.Forms.Button();
-            this.updateCustomerComboBox = new System.Windows.Forms.ComboBox();
             this.updateAddress = new System.Windows.Forms.Button();
             this.updateProduct = new System.Windows.Forms.Button();
             this.updateCustomer = new System.Windows.Forms.Button();
@@ -85,8 +81,8 @@ namespace lab5WinForms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 211;
+            this.splitContainer1.Size = new System.Drawing.Size(820, 529);
+            this.splitContainer1.SplitterDistance = 216;
             this.splitContainer1.TabIndex = 0;
             // 
             // getUsersLivedInKharkivNowInKiev
@@ -97,6 +93,7 @@ namespace lab5WinForms
             this.getUsersLivedInKharkivNowInKiev.TabIndex = 10;
             this.getUsersLivedInKharkivNowInKiev.Text = "Get customers who previously lived in Kharkiv and now live\r\nIn Kiev";
             this.getUsersLivedInKharkivNowInKiev.UseVisualStyleBackColor = true;
+            this.getUsersLivedInKharkivNowInKiev.Click += new System.EventHandler(this.getUsersLivedInKharkivNowInKiev_Click);
             // 
             // getCustomersKiivLvivIvanoFrankivsk
             // 
@@ -106,6 +103,7 @@ namespace lab5WinForms
             this.getCustomersKiivLvivIvanoFrankivsk.TabIndex = 9;
             this.getCustomersKiivLvivIvanoFrankivsk.Text = "Get customers living in Kyiv, Lviv, Ivano-Frankivsk";
             this.getCustomersKiivLvivIvanoFrankivsk.UseVisualStyleBackColor = true;
+            this.getCustomersKiivLvivIvanoFrankivsk.Click += new System.EventHandler(this.getCustomersKiivLvivIvanoFrankivsk_Click);
             // 
             // getUsersBetwen1980and1955
             // 
@@ -165,6 +163,7 @@ namespace lab5WinForms
             this.addManager.TabIndex = 3;
             this.addManager.Text = "Add Manager";
             this.addManager.UseVisualStyleBackColor = true;
+            this.addManager.Click += new System.EventHandler(this.addManager_Click);
             // 
             // addAddress
             // 
@@ -174,6 +173,7 @@ namespace lab5WinForms
             this.addAddress.TabIndex = 2;
             this.addAddress.Text = "Add Address";
             this.addAddress.UseVisualStyleBackColor = true;
+            this.addAddress.Click += new System.EventHandler(this.addAddress_Click);
             // 
             // addProduct
             // 
@@ -204,11 +204,7 @@ namespace lab5WinForms
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.updateManagerComboBox);
-            this.splitContainer2.Panel1.Controls.Add(this.updateProductComboBox);
-            this.splitContainer2.Panel1.Controls.Add(this.updateAddressComboBox);
             this.splitContainer2.Panel1.Controls.Add(this.updateManager);
-            this.splitContainer2.Panel1.Controls.Add(this.updateCustomerComboBox);
             this.splitContainer2.Panel1.Controls.Add(this.updateAddress);
             this.splitContainer2.Panel1.Controls.Add(this.updateProduct);
             this.splitContainer2.Panel1.Controls.Add(this.updateCustomer);
@@ -216,58 +212,22 @@ namespace lab5WinForms
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(585, 450);
-            this.splitContainer2.SplitterDistance = 130;
+            this.splitContainer2.Size = new System.Drawing.Size(600, 529);
+            this.splitContainer2.SplitterDistance = 61;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // updateManagerComboBox
-            // 
-            this.updateManagerComboBox.FormattingEnabled = true;
-            this.updateManagerComboBox.Location = new System.Drawing.Point(17, 94);
-            this.updateManagerComboBox.Name = "updateManagerComboBox";
-            this.updateManagerComboBox.Size = new System.Drawing.Size(181, 21);
-            this.updateManagerComboBox.TabIndex = 14;
-            this.updateManagerComboBox.Text = "Select Manager";
-            // 
-            // updateProductComboBox
-            // 
-            this.updateProductComboBox.FormattingEnabled = true;
-            this.updateProductComboBox.Location = new System.Drawing.Point(17, 63);
-            this.updateProductComboBox.Name = "updateProductComboBox";
-            this.updateProductComboBox.Size = new System.Drawing.Size(181, 21);
-            this.updateProductComboBox.TabIndex = 13;
-            this.updateProductComboBox.Text = "Select Product";
-            // 
-            // updateAddressComboBox
-            // 
-            this.updateAddressComboBox.FormattingEnabled = true;
-            this.updateAddressComboBox.Location = new System.Drawing.Point(17, 34);
-            this.updateAddressComboBox.Name = "updateAddressComboBox";
-            this.updateAddressComboBox.Size = new System.Drawing.Size(181, 21);
-            this.updateAddressComboBox.TabIndex = 12;
-            this.updateAddressComboBox.Text = "Select Address";
             // 
             // updateManager
             // 
-            this.updateManager.Location = new System.Drawing.Point(222, 92);
+            this.updateManager.Location = new System.Drawing.Point(476, 12);
             this.updateManager.Name = "updateManager";
             this.updateManager.Size = new System.Drawing.Size(97, 23);
             this.updateManager.TabIndex = 11;
             this.updateManager.Text = "Update Manager";
             this.updateManager.UseVisualStyleBackColor = true;
             // 
-            // updateCustomerComboBox
-            // 
-            this.updateCustomerComboBox.FormattingEnabled = true;
-            this.updateCustomerComboBox.Location = new System.Drawing.Point(17, 4);
-            this.updateCustomerComboBox.Name = "updateCustomerComboBox";
-            this.updateCustomerComboBox.Size = new System.Drawing.Size(181, 21);
-            this.updateCustomerComboBox.TabIndex = 0;
-            this.updateCustomerComboBox.Text = "Select Customer";
-            // 
             // updateAddress
             // 
-            this.updateAddress.Location = new System.Drawing.Point(222, 34);
+            this.updateAddress.Location = new System.Drawing.Point(325, 12);
             this.updateAddress.Name = "updateAddress";
             this.updateAddress.Size = new System.Drawing.Size(97, 23);
             this.updateAddress.TabIndex = 10;
@@ -276,21 +236,23 @@ namespace lab5WinForms
             // 
             // updateProduct
             // 
-            this.updateProduct.Location = new System.Drawing.Point(221, 63);
+            this.updateProduct.Location = new System.Drawing.Point(170, 12);
             this.updateProduct.Name = "updateProduct";
             this.updateProduct.Size = new System.Drawing.Size(98, 23);
             this.updateProduct.TabIndex = 9;
             this.updateProduct.Text = "Update Product";
             this.updateProduct.UseVisualStyleBackColor = true;
+            this.updateProduct.Click += new System.EventHandler(this.updateProduct_Click);
             // 
             // updateCustomer
             // 
-            this.updateCustomer.Location = new System.Drawing.Point(222, 4);
+            this.updateCustomer.Location = new System.Drawing.Point(18, 12);
             this.updateCustomer.Name = "updateCustomer";
             this.updateCustomer.Size = new System.Drawing.Size(97, 23);
             this.updateCustomer.TabIndex = 8;
             this.updateCustomer.Text = "Update Customer";
             this.updateCustomer.UseVisualStyleBackColor = true;
+            this.updateCustomer.Click += new System.EventHandler(this.updateCustomer_Click);
             // 
             // dataGridView1
             // 
@@ -301,18 +263,17 @@ namespace lab5WinForms
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(600, 464);
             this.dataGridView1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(820, 529);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -340,11 +301,7 @@ namespace lab5WinForms
         private System.Windows.Forms.Button addCustomers;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button getUsersBetwen1980and1955;
-        private System.Windows.Forms.ComboBox updateManagerComboBox;
-        private System.Windows.Forms.ComboBox updateProductComboBox;
-        private System.Windows.Forms.ComboBox updateAddressComboBox;
         private System.Windows.Forms.Button updateManager;
-        private System.Windows.Forms.ComboBox updateCustomerComboBox;
         private System.Windows.Forms.Button updateAddress;
         private System.Windows.Forms.Button updateProduct;
         private System.Windows.Forms.Button updateCustomer;

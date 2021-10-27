@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab5WinForms.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,20 @@ namespace lab5WinForms
 
         private void getUsersBetwen1980and1955_Click(object sender, EventArgs e)
         {
-          
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string cmdText = "Select Distinct Customers.PIB, Customers.Date_of_birth, Product.P_name, Mark_of_product.Mark, Relatives.PIB," +
+                " Relatives.Who_for_customer from Customers  join Relatives on Customers.Id = Relatives.Customer_id join Mark_of_product on Customers.Id" +
+                " = Mark_of_product.Customer_id join Product on Product.Id = Mark_of_product.Product_id Where Relatives.Who_for_customer IN('брат','сестра') " +
+                "and Customers.Date_of_birth between '1980' and '1995' and Product.P_name = 'Шоколадні цукерки Каракум' and Mark_of_product.Mark > 3 ";
+            SqlCommand comm = new SqlCommand(cmdText, con);
+            SqlDataReader sqlDataReader = comm.ExecuteReader();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Load(sqlDataReader);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+            con.Close();
         }
 
         private void getProducts_Click(object sender, EventArgs e)
@@ -85,44 +99,6 @@ namespace lab5WinForms
             con.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(ConnectionString);
-            con.Open();
-            string cmdTextCustomers = "Select Id, PIB from Customers";
-            string cmdTextAddress = "Select Id, City from Address_c";
-            string cmdTextProduct = "Select Id, P_name from Product";
-            string cmdTextManagers = "Select Id, PIB from Manager";
-            SqlCommand commCustomer = new SqlCommand(cmdTextCustomers, con);
-            SqlDataReader sqlDataReaderCustomer = commCustomer.ExecuteReader();
-
-
-           /* 
-            SqlCommand commAddress = new SqlCommand(cmdTextAddress, con);
-            SqlDataReader sqlDataReaderAddress = commAddress.ExecuteReader();
-
-            
-            SqlCommand commManagers = new SqlCommand(cmdTextManagers, con);
-            SqlDataReader sqlDataReaderManagers = commManagers.ExecuteReader();
-
-            
-            SqlCommand commProduct = new SqlCommand(cmdTextProduct, con);
-            SqlDataReader sqlDataReaderProduct = commProduct.ExecuteReader();
-*/
-            updateCustomerComboBox.Items.Clear();
-            updateAddressComboBox.Items.Clear();
-            updateManagerComboBox.Items.Clear();
-            updateProductComboBox.Items.Clear();
-            while(sqlDataReaderCustomer.Read())
-            {
-                updateCustomerComboBox.Items.Add(sqlDataReaderCustomer[1]);
-               /* updateAddressComboBox.Items.Add(sqlDataReaderAddress[1]);
-                updateManagerComboBox.Items.Add(sqlDataReaderManagers[1]);
-                updateProductComboBox.Items.Add(sqlDataReaderProduct[1]);*/
-;           }
-            con.Close();
-
-        }
 
         private void addCustomers_Click(object sender, EventArgs e)
         {
@@ -136,6 +112,68 @@ namespace lab5WinForms
             AddProductForm addProduct = new AddProductForm();
             addProduct.Show();
 
+        }
+
+        private void addAddress_Click(object sender, EventArgs e)
+        {
+            AddAddressForm addAddress = new AddAddressForm();
+            addAddress.Show();
+        }
+
+        private void addManager_Click(object sender, EventArgs e)
+        {
+            AddManagerForm addManager = new AddManagerForm();
+            addManager.Show();
+        }
+
+        private void getCustomersKiivLvivIvanoFrankivsk_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string cmdText = "Select Customers.PIB, Address_c.City, Hobbi.Hobbi_name, Product.P_name, Mark_of_product.Mark from Customers " +
+                "join Customer_adress on Customer_adress.Customer_id = Customers.Id join Address_c on Customer_adress.Addres_id = Address_c.Id join Customer_hobbi  " +
+                "on Customer_hobbi.Customer_id = Customers.Id join Hobbi on Customer_hobbi.hobbi_id = Hobbi.Id join Mark_of_product on Mark_of_product.Customer_id = Customers.Id" +
+                " join Product on Mark_of_product.Product_id = Product.Id where Address_c.City IN('Київ','Львів','Івано-Франківськ') and Hobbi.Hobbi_name = 'Займатися спортом' and Product.P_name" +
+                " In('Шоколадне драже','Вафлі Артек') ";
+            SqlCommand comm = new SqlCommand(cmdText, con);
+            SqlDataReader sqlDataReader = comm.ExecuteReader();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Load(sqlDataReader);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+            con.Close();
+        }
+
+        private void getUsersLivedInKharkivNowInKiev_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string cmdText = "Select Distinct Customers.PIB, Customers.Plase_of_esidence, Address_c.City, Hobbi.Hobbi_name from Customers " +
+               "join Customer_adress on Customer_adress.Customer_id = Customers.Id join Address_c on Customer_adress.Addres_id = Address_c.Id" +
+               " join Customer_hobbi on Customer_hobbi.Customer_id = Customers.Id join Hobbi on Customer_hobbi.hobbi_id = Hobbi.Id where Customers.Plase_of_esidence" +
+               " LIKE '%Київ%' and Address_c.City = 'Харків'and Hobbi.Hobbi_name = 'Читання книг'";
+            SqlCommand comm = new SqlCommand(cmdText, con);
+            SqlDataReader sqlDataReader = comm.ExecuteReader();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Load(sqlDataReader);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+            con.Close();
+        }
+
+        private void updateCustomer_Click(object sender, EventArgs e)
+        {
+            AddCustomerForm updateCustomer = new AddCustomerForm(true);
+            updateCustomer.Show();
+        }
+
+        private void updateProduct_Click(object sender, EventArgs e)
+        {
+
+            AddProductForm updateProduct = new AddProductForm(true);
+            updateProduct.Show();
         }
     }
 }
