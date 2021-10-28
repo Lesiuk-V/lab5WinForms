@@ -87,37 +87,41 @@ namespace lab5WinForms
             // 
             // getUsersLivedInKharkivNowInKiev
             // 
-            this.getUsersLivedInKharkivNowInKiev.Location = new System.Drawing.Point(7, 366);
+            this.getUsersLivedInKharkivNowInKiev.Location = new System.Drawing.Point(8, 398);
             this.getUsersLivedInKharkivNowInKiev.Name = "getUsersLivedInKharkivNowInKiev";
-            this.getUsersLivedInKharkivNowInKiev.Size = new System.Drawing.Size(201, 49);
+            this.getUsersLivedInKharkivNowInKiev.Size = new System.Drawing.Size(201, 96);
             this.getUsersLivedInKharkivNowInKiev.TabIndex = 10;
-            this.getUsersLivedInKharkivNowInKiev.Text = "Get customers who previously lived in Kharkiv and now live\r\nIn Kiev";
+            this.getUsersLivedInKharkivNowInKiev.Text = "Get customers who previously live in Kharkiv, and now live\r\nin Kiev and indicated" +
+    " in their preferences that they like to read books";
             this.getUsersLivedInKharkivNowInKiev.UseVisualStyleBackColor = true;
             this.getUsersLivedInKharkivNowInKiev.Click += new System.EventHandler(this.getUsersLivedInKharkivNowInKiev_Click);
             // 
             // getCustomersKiivLvivIvanoFrankivsk
             // 
-            this.getCustomersKiivLvivIvanoFrankivsk.Location = new System.Drawing.Point(7, 324);
+            this.getCustomersKiivLvivIvanoFrankivsk.Location = new System.Drawing.Point(7, 294);
             this.getCustomersKiivLvivIvanoFrankivsk.Name = "getCustomersKiivLvivIvanoFrankivsk";
-            this.getCustomersKiivLvivIvanoFrankivsk.Size = new System.Drawing.Size(202, 35);
+            this.getCustomersKiivLvivIvanoFrankivsk.Size = new System.Drawing.Size(202, 98);
             this.getCustomersKiivLvivIvanoFrankivsk.TabIndex = 9;
-            this.getCustomersKiivLvivIvanoFrankivsk.Text = "Get customers living in Kyiv, Lviv, Ivano-Frankivsk";
+            this.getCustomersKiivLvivIvanoFrankivsk.Text = "Get customers living in Kyiv, Lviv, Ivano-Frankivsk,\r\nindicated in personal prefe" +
+    "rences that like to play sports appreciated\r\nproduct \"Chocolate dragees\" or \"Art" +
+    "ek waffles\"";
             this.getCustomersKiivLvivIvanoFrankivsk.UseVisualStyleBackColor = true;
             this.getCustomersKiivLvivIvanoFrankivsk.Click += new System.EventHandler(this.getCustomersKiivLvivIvanoFrankivsk_Click);
             // 
             // getUsersBetwen1980and1955
             // 
-            this.getUsersBetwen1980and1955.Location = new System.Drawing.Point(7, 277);
+            this.getUsersBetwen1980and1955.Location = new System.Drawing.Point(7, 197);
             this.getUsersBetwen1980and1955.Name = "getUsersBetwen1980and1955";
-            this.getUsersBetwen1980and1955.Size = new System.Drawing.Size(201, 40);
+            this.getUsersBetwen1980and1955.Size = new System.Drawing.Size(201, 91);
             this.getUsersBetwen1980and1955.TabIndex = 8;
-            this.getUsersBetwen1980and1955.Text = "Get all customers born between 1980 and 1995";
+            this.getUsersBetwen1980and1955.Text = "Get all customers born between 1980 and 1995 and\r\nhave siblings, and also put the" +
+    " product “Chocolate\r\ncandy \"Karakum\" score higher than 3 points.";
             this.getUsersBetwen1980and1955.UseVisualStyleBackColor = true;
             this.getUsersBetwen1980and1955.Click += new System.EventHandler(this.getUsersBetwen1980and1955_Click);
             // 
             // getManagers
             // 
-            this.getManagers.Location = new System.Drawing.Point(111, 213);
+            this.getManagers.Location = new System.Drawing.Point(111, 149);
             this.getManagers.Name = "getManagers";
             this.getManagers.Size = new System.Drawing.Size(97, 23);
             this.getManagers.TabIndex = 7;
@@ -127,7 +131,7 @@ namespace lab5WinForms
             // 
             // getAddress
             // 
-            this.getAddress.Location = new System.Drawing.Point(7, 213);
+            this.getAddress.Location = new System.Drawing.Point(7, 149);
             this.getAddress.Name = "getAddress";
             this.getAddress.Size = new System.Drawing.Size(97, 23);
             this.getAddress.TabIndex = 6;
@@ -137,7 +141,7 @@ namespace lab5WinForms
             // 
             // getProducts
             // 
-            this.getProducts.Location = new System.Drawing.Point(111, 184);
+            this.getProducts.Location = new System.Drawing.Point(111, 120);
             this.getProducts.Name = "getProducts";
             this.getProducts.Size = new System.Drawing.Size(97, 23);
             this.getProducts.TabIndex = 5;
@@ -147,7 +151,7 @@ namespace lab5WinForms
             // 
             // getCustomers
             // 
-            this.getCustomers.Location = new System.Drawing.Point(7, 185);
+            this.getCustomers.Location = new System.Drawing.Point(7, 121);
             this.getCustomers.Name = "getCustomers";
             this.getCustomers.Size = new System.Drawing.Size(97, 23);
             this.getCustomers.TabIndex = 4;
@@ -157,7 +161,7 @@ namespace lab5WinForms
             // 
             // addManager
             // 
-            this.addManager.Location = new System.Drawing.Point(111, 83);
+            this.addManager.Location = new System.Drawing.Point(111, 53);
             this.addManager.Name = "addManager";
             this.addManager.Size = new System.Drawing.Size(98, 23);
             this.addManager.TabIndex = 3;
@@ -167,7 +171,7 @@ namespace lab5WinForms
             // 
             // addAddress
             // 
-            this.addAddress.Location = new System.Drawing.Point(7, 83);
+            this.addAddress.Location = new System.Drawing.Point(7, 53);
             this.addAddress.Name = "addAddress";
             this.addAddress.Size = new System.Drawing.Size(97, 23);
             this.addAddress.TabIndex = 2;
@@ -177,7 +181,7 @@ namespace lab5WinForms
             // 
             // addProduct
             // 
-            this.addProduct.Location = new System.Drawing.Point(111, 54);
+            this.addProduct.Location = new System.Drawing.Point(111, 24);
             this.addProduct.Name = "addProduct";
             this.addProduct.Size = new System.Drawing.Size(97, 23);
             this.addProduct.TabIndex = 1;
@@ -187,7 +191,7 @@ namespace lab5WinForms
             // 
             // addCustomers
             // 
-            this.addCustomers.Location = new System.Drawing.Point(7, 53);
+            this.addCustomers.Location = new System.Drawing.Point(7, 23);
             this.addCustomers.Name = "addCustomers";
             this.addCustomers.Size = new System.Drawing.Size(97, 23);
             this.addCustomers.TabIndex = 0;
@@ -224,6 +228,7 @@ namespace lab5WinForms
             this.updateManager.TabIndex = 11;
             this.updateManager.Text = "Update Manager";
             this.updateManager.UseVisualStyleBackColor = true;
+            this.updateManager.Click += new System.EventHandler(this.updateManager_Click);
             // 
             // updateAddress
             // 
@@ -233,6 +238,7 @@ namespace lab5WinForms
             this.updateAddress.TabIndex = 10;
             this.updateAddress.Text = "Update Address";
             this.updateAddress.UseVisualStyleBackColor = true;
+            this.updateAddress.Click += new System.EventHandler(this.updateAddress_Click);
             // 
             // updateProduct
             // 

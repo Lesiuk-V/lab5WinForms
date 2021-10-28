@@ -66,31 +66,25 @@ namespace lab5WinForms
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConnectionString);
-            con.Open();
-/*            ValidationContext context = new ValidationContext(customer, null, null);
-            IList<ValidationResult> errors = new List<ValidationResult>();
-            if (!Validator.TryValidateObject(customer, context, errors, true))
+            if(ValidateForm())
             {
-                foreach (ValidationResult result in errors)
-                {
-                    MessageBox.Show(result.ErrorMessage, "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-            }*/
-            string dateOfBirth = AgeDateTimePicker.Value.Year.ToString() + '-' + AgeDateTimePicker.Value.Month.ToString() + '-' + AgeDateTimePicker.Value.Day.ToString();
-            string cmdText = $"UPDATE Customers SET PIB = '{PIBTextBox.Text}', Gender= '{genderTextBox.Text}', Plase_of_esidence = '{plase_of_esidenceTextBox.Text}', Date_of_birth = '{dateOfBirth}' WHERE Id ={idTextBox.Text}";
+                SqlConnection con = new SqlConnection(ConnectionString);
+                con.Open();
+                string dateOfBirth = AgeDateTimePicker.Value.Year.ToString() + '-' + AgeDateTimePicker.Value.Month.ToString() + '-' + AgeDateTimePicker.Value.Day.ToString();
+                string cmdText = $"UPDATE Customers SET PIB = '{PIBTextBox.Text}', Gender= '{genderTextBox.Text}', Plase_of_esidence = '{plase_of_esidenceTextBox.Text}', Date_of_birth = '{dateOfBirth}' WHERE Id ={idTextBox.Text}";
 
-            SqlCommand comm = new SqlCommand(cmdText, con);
-            comm.ExecuteNonQuery();
-            this.Close();
-            con.Close();
+                SqlCommand comm = new SqlCommand(cmdText, con);
+                comm.ExecuteNonQuery();
+                this.Close();
+                con.Close();
+            }    
+            else
+                MessageBox.Show("Please enter valid data");
         }
 
         private void updateComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Customer customer = (Customer)updateComboBox.SelectedItem;
-            label2.Text = "Update Customer";
             PIBTextBox.Text = customer.PIB;
             genderTextBox.Text = customer.Gender;
             plase_of_esidenceTextBox.Text = customer.Plase_of_esidence;
@@ -120,6 +114,112 @@ namespace lab5WinForms
                 updateComboBox.DisplayMember = "PIB";
             }
             con.Close();
+        }
+
+
+        private bool ValidateForm()
+        {
+            bool bValidSelectedCustomer = ValidateSelectedCustomer();
+            bool bValidPIB = ValidatePIB();
+            bool bValidGender = ValidateGender();
+            bool bValidPlaceOfEsidence = ValidatePlaseOfEsidence();
+            bool bValidDateOfBirth = ValidateDateOfBirth();
+            if (bValidSelectedCustomer && bValidPIB && bValidGender && bValidPlaceOfEsidence && bValidDateOfBirth)
+                return true;
+            else
+                return false;
+        }
+
+        private bool ValidateSelectedCustomer()
+        {
+            bool bStatus = true;
+            if (updateComboBox.Text == "")
+            {
+
+                errorProvider1.SetError(updateComboBox, "Please select customer");
+                bStatus = false;
+            }
+            else
+                errorProvider1.SetError(updateComboBox, "");
+            return bStatus;
+        }
+
+        private bool ValidatePIB()
+        {
+            bool bStatus = true;
+            if (PIBTextBox.Text == "")
+            {
+
+                errorProvider2.SetError(PIBTextBox, "Please enter PIB");
+                bStatus = false;
+            }
+            else
+                errorProvider2.SetError(PIBTextBox, "");
+            return bStatus;
+        }
+        private bool ValidateGender()
+        {
+            bool bStatus = true;
+            if (genderTextBox.Text == "")
+            {
+
+                errorProvider3.SetError(genderTextBox, "Please enter gender");
+                bStatus = false;
+            }
+            else
+                errorProvider3.SetError(genderTextBox, "");
+            return bStatus;
+        }
+        private bool ValidatePlaseOfEsidence()
+        {
+            bool bStatus = true;
+            if (plase_of_esidenceTextBox.Text == "")
+            {
+
+                errorProvider4.SetError(plase_of_esidenceTextBox, "Please enter plase of esidence");
+                bStatus = false;
+            }
+            else
+                errorProvider4.SetError(plase_of_esidenceTextBox, "");
+            return bStatus;
+        }
+        private bool ValidateDateOfBirth()
+        {
+            bool bStatus = true;
+            if (AgeDateTimePicker.Text == "")
+            {
+
+                errorProvider5.SetError(AgeDateTimePicker, "Please enter date of birth");
+                bStatus = false;
+            }
+            else
+                errorProvider5.SetError(AgeDateTimePicker, "");
+            return bStatus;
+        }
+
+        private void updateComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateSelectedCustomer();
+        }
+
+        private void PIBTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePIB();
+        }
+
+        private void genderTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateGender();
+        }
+
+        private void plase_of_esidenceTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePlaseOfEsidence();
+        }
+
+        private void AgeDateTimePicker_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateDateOfBirth();
         }
     }
 }

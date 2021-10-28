@@ -175,5 +175,17 @@ namespace lab5WinForms
             AddProductForm updateProduct = new AddProductForm(true);
             updateProduct.Show();
         }
+
+        private void updateAddress_Click(object sender, EventArgs e)
+        {
+            AddAddressForm updateAddress = new AddAddressForm(true);
+            updateAddress.Show();
+        }
+
+        private void updateManager_Click(object sender, EventArgs e)
+        {
+            AddManagerForm addManager = new AddManagerForm(true);
+            addManager.Show();
+        }
     }
 }

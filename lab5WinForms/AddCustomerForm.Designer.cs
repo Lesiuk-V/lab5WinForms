@@ -44,15 +44,25 @@ namespace lab5WinForms
             this.updateComboBox = new System.Windows.Forms.ComboBox();
             this.updateLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
+            this.idLabel = new System.Windows.Forms.Label();
             this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idLabel = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             date_of_birthLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
             pIBLabel = new System.Windows.Forms.Label();
             plase_of_esidenceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // date_of_birthLabel
@@ -107,6 +117,7 @@ namespace lab5WinForms
             this.AgeDateTimePicker.Name = "AgeDateTimePicker";
             this.AgeDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.AgeDateTimePicker.TabIndex = 8;
+            this.AgeDateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.AgeDateTimePicker_Validating);
             // 
             // genderTextBox
             // 
@@ -115,6 +126,7 @@ namespace lab5WinForms
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.Size = new System.Drawing.Size(200, 20);
             this.genderTextBox.TabIndex = 10;
+            this.genderTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.genderTextBox_Validating);
             // 
             // PIBTextBox
             // 
@@ -123,6 +135,7 @@ namespace lab5WinForms
             this.PIBTextBox.Name = "PIBTextBox";
             this.PIBTextBox.Size = new System.Drawing.Size(200, 20);
             this.PIBTextBox.TabIndex = 14;
+            this.PIBTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PIBTextBox_Validating);
             // 
             // plase_of_esidenceTextBox
             // 
@@ -131,6 +144,7 @@ namespace lab5WinForms
             this.plase_of_esidenceTextBox.Name = "plase_of_esidenceTextBox";
             this.plase_of_esidenceTextBox.Size = new System.Drawing.Size(200, 20);
             this.plase_of_esidenceTextBox.TabIndex = 16;
+            this.plase_of_esidenceTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.plase_of_esidenceTextBox_Validating);
             // 
             // saveButton
             // 
@@ -160,6 +174,7 @@ namespace lab5WinForms
             this.updateComboBox.Size = new System.Drawing.Size(200, 21);
             this.updateComboBox.TabIndex = 21;
             this.updateComboBox.SelectedIndexChanged += new System.EventHandler(this.updateComboBox_SelectedIndexChanged);
+            this.updateComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.updateComboBox_Validating);
             // 
             // updateLabel
             // 
@@ -179,14 +194,6 @@ namespace lab5WinForms
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 23;
             // 
-            // managerBindingSource
-            // 
-            this.managerBindingSource.DataSource = typeof(lab5WinForms.Models.Manager);
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(lab5WinForms.Models.Customer);
-            // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
@@ -195,6 +202,34 @@ namespace lab5WinForms
             this.idLabel.Size = new System.Drawing.Size(19, 13);
             this.idLabel.TabIndex = 24;
             this.idLabel.Text = "Id:";
+            // 
+            // managerBindingSource
+            // 
+            this.managerBindingSource.DataSource = typeof(lab5WinForms.Models.Manager);
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(lab5WinForms.Models.Customer);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
             // 
             // AddCustomerForm
             // 
@@ -222,6 +257,11 @@ namespace lab5WinForms
             this.Load += new System.EventHandler(this.AddCustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +281,10 @@ namespace lab5WinForms
         private System.Windows.Forms.BindingSource managerBindingSource;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
     }
 }

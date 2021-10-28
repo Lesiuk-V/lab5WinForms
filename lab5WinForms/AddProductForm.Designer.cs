@@ -46,10 +46,20 @@ namespace lab5WinForms
             this.idLabel = new System.Windows.Forms.Label();
             this.updateButton = new System.Windows.Forms.Button();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             categoryLabel = new System.Windows.Forms.Label();
             p_descriptionLabel = new System.Windows.Forms.Label();
             p_nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // categoryLabel
@@ -86,6 +96,7 @@ namespace lab5WinForms
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(301, 20);
             this.categoryTextBox.TabIndex = 2;
+            this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.categoryTextBox_Validating);
             // 
             // p_descriptionTextBox
             // 
@@ -95,6 +106,7 @@ namespace lab5WinForms
             this.p_descriptionTextBox.Name = "p_descriptionTextBox";
             this.p_descriptionTextBox.Size = new System.Drawing.Size(301, 82);
             this.p_descriptionTextBox.TabIndex = 8;
+            this.p_descriptionTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.p_descriptionTextBox_Validating);
             // 
             // p_nameTextBox
             // 
@@ -103,6 +115,7 @@ namespace lab5WinForms
             this.p_nameTextBox.Name = "p_nameTextBox";
             this.p_nameTextBox.Size = new System.Drawing.Size(301, 20);
             this.p_nameTextBox.TabIndex = 10;
+            this.p_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.p_nameTextBox_Validating);
             // 
             // label1
             // 
@@ -130,6 +143,7 @@ namespace lab5WinForms
             this.pIBComboBox.Name = "pIBComboBox";
             this.pIBComboBox.Size = new System.Drawing.Size(301, 21);
             this.pIBComboBox.TabIndex = 13;
+            this.pIBComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.pIBComboBox_Validating);
             // 
             // updateComboBox
             // 
@@ -139,6 +153,7 @@ namespace lab5WinForms
             this.updateComboBox.Size = new System.Drawing.Size(301, 21);
             this.updateComboBox.TabIndex = 14;
             this.updateComboBox.SelectedIndexChanged += new System.EventHandler(this.updateComboBox_SelectedIndexChanged);
+            this.updateComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.updateComboBox_Validating);
             // 
             // updateLable
             // 
@@ -189,6 +204,26 @@ namespace lab5WinForms
             // 
             this.productBindingSource.DataSource = typeof(lab5WinForms.Models.Product);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +249,11 @@ namespace lab5WinForms
             this.Text = "AddProductForm";
             this.Load += new System.EventHandler(this.AddProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +274,10 @@ namespace lab5WinForms
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
     }
 }

@@ -18,5 +18,12 @@ namespace lab5WinForms.Models
         public string Street { get; set; }
         [Required]
         public string Building { get; set; }
+        public string FullAddress 
+        {
+            get
+            {
+                return Region + ' ' + City + ' ' + Street + ' ' + Building;
+            }
+        }
     }
 }
